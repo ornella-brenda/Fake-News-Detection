@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection using Decision Tree Classifier </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Fake News Detection</h1>
+    <p>Copy and paste the text of the news or article to see if it's fake news or not.</p>
+
+    <form action="/predict" method="post">
+        <label for="text">Enter Text:</label><br>
+        <textarea name="text" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+        <p>Entered Text: {{ text }}</p>
+    {% endif %}
+</body>
+</html>
